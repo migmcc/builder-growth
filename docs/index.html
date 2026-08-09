@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>builder-growth — AI Growth Skills Pack</title>
-<meta name="description" content="6 skills and 3 agents that enforce growth quality — positioning that survives 'so what?', copy that clears 'who cares?', experiments with pre-specified stopping rules, and AI messaging reviewed for accuracy.">
+<meta name="description" content="14 skills and 5 agents that enforce growth quality across the full lifecycle — strategy, channel selection, offers, and campaigns through positioning that survives 'so what?', copy that clears 'who cares?', experiments with pre-specified stopping rules, and AI messaging reviewed for accuracy.">
 <style>
 /* ── RESET & TOKENS ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,6 +31,47 @@
   --shadow:    0 4px 24px rgba(0,0,0,.4);
   --shadow-lg: 0 12px 48px rgba(0,0,0,.6);
 }
+/* ── LIGHT MODE ── */
+[data-theme="light"] {
+  --bg:        #f8fafc;
+  --bg2:       #f1f5f9;
+  --surface:   #ffffff;
+  --border:    rgba(0,0,0,.08);
+  --border2:   rgba(0,0,0,.14);
+  --text:      #1e293b;
+  --shadow:    0 4px 24px rgba(0,0,0,.08);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,.15);
+}
+[data-theme="light"] nav {
+  background: rgba(248,250,252,.92);
+  border-bottom-color: rgba(0,0,0,.1);
+}
+[data-theme="light"] .nav-logo-text { color: #0f172a; }
+[data-theme="light"] .section h2    { color: #0f172a; }
+[data-theme="light"] .hero-bg       { opacity: .5; }
+[data-theme="light"] .hero-grid     { opacity: .3; }
+[data-theme="light"] .btn-github    { background: #0f172a; color: #fff; }
+[data-theme="light"] .cmp.before { background: rgba(239,68,68,.06); border-color: rgba(239,68,68,.3); }
+[data-theme="light"] .cmp.after  { background: rgba(16,185,129,.06); border-color: rgba(16,185,129,.3); }
+[data-theme="light"] .faq-item  { background: var(--surface); border-color: var(--border); }
+[data-theme="light"] .skill-card,
+[data-theme="light"] .agent-card,
+[data-theme="light"] .gate-card,
+[data-theme="light"] .ack-card   { background: var(--surface); border-color: var(--border); }
+[data-theme="light"] .hero-stat  { background: var(--surface); }
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: .9rem;
+  line-height: 1;
+  transition: background .15s;
+}
+.theme-toggle:hover { background: rgba(255,255,255,.08); }
+[data-theme="light"] .theme-toggle:hover { background: rgba(0,0,0,.06); }
+
 
 html { scroll-behavior: smooth; }
 body {
@@ -352,6 +393,9 @@ footer a:hover { color:var(--text); }
   .skill-row { grid-template-columns:1fr; gap:10px; }
 }
 </style>
+<script>
+(function(){var s=localStorage.getItem('theme'),d=window.matchMedia('(prefers-color-scheme:dark)').matches;document.documentElement.setAttribute('data-theme',s||(d?'dark':'light'));})();
+</script>
 </head>
 <body>
 
@@ -360,9 +404,11 @@ footer a:hover { color:var(--text); }
   <a class="nav-logo" href="#">
     <div class="nav-logo-icon">b-g</div>
     <span class="nav-logo-text">builder-growth</span>
-    <span class="nav-logo-badge">v1.0.0</span>
+    <span class="nav-logo-badge">v1.1.0</span>
   </a>
   <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+    
     <a class="btn-github" href="https://github.com/RBraga01/builder-growth" target="_blank" rel="noopener">
       <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
       GitHub
@@ -394,11 +440,11 @@ footer a:hover { color:var(--text); }
         <div class="hero-stat-l">Hard Gate</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-n n-green">6</div>
+        <div class="hero-stat-n n-green">14</div>
         <div class="hero-stat-l">Skills</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-n n-teal">3</div>
+        <div class="hero-stat-n n-teal">5</div>
         <div class="hero-stat-l">Agents</div>
       </div>
       <div class="hero-stat">
@@ -461,9 +507,9 @@ footer a:hover { color:var(--text); }
 
 <!-- ── SKILLS ── -->
 <section class="section reveal">
-  <div class="section-tag">The 6 Rules</div>
+  <div class="section-tag">The 14 Rules</div>
   <h2>One rule per growth quality failure</h2>
-  <p class="section-sub">One rule blocks messaging from shipping without sourced claims. Five rules enforce how every piece of growth work is done.</p>
+  <p class="section-sub">One rule blocks messaging from shipping without sourced claims. Thirteen rules enforce how every piece of growth work — from strategy to launch — gets done.</p>
 
   <div class="skills-list">
     <div class="skill-row reveal">
@@ -472,13 +518,43 @@ footer a:hover { color:var(--text); }
       <span class="skill-badge badge-gate">Hard Gate</span>
     </div>
     <div class="skill-row reveal">
+      <span class="skill-name">growth-strategy-design</span>
+      <span class="skill-desc">Growth stage, target segment, growth goal, and primary constraint are named — not assumed. A channel hypothesis, a core offer, a north star metric, and a 90-day hypothesis are written down before any execution starts.</span>
+      <span class="skill-badge badge-workflow">Workflow</span>
+    </div>
+    <div class="skill-row reveal">
+      <span class="skill-name">channel-selection-audit</span>
+      <span class="skill-desc">Every candidate channel — SEO, paid, outbound, partnerships, and more — scored against the same 8 criteria: audience presence, intent, cost to test, feedback speed, trust, sales-cycle fit, complexity, measurability. No channel chosen by default.</span>
+      <span class="skill-badge badge-workflow">Workflow</span>
+    </div>
+    <div class="skill-row reveal">
+      <span class="skill-name">offer-quality-gate</span>
+      <span class="skill-desc">Target customer, painful problem, promised outcome, mechanism, proof, and risk reversal — plus a single CTA and the top objections answered — all defined before copy is built around the offer.</span>
+      <span class="skill-badge badge-workflow">Workflow</span>
+    </div>
+    <div class="skill-row reveal">
       <span class="skill-name">positioning-audit</span>
       <span class="skill-desc">Your category is something people search for. Your audience is specific enough to name 10 real people. Your claim doesn't apply to your main competitor. And you can explain why it matters in two sentences or fewer.</span>
       <span class="skill-badge badge-workflow">Workflow</span>
     </div>
     <div class="skill-row reveal">
+      <span class="skill-name">campaign-brief-generator</span>
+      <span class="skill-desc">Objective, audience, offer, message, channel, creative specs, landing destination, CTA, and success metric — one executable brief instead of three people independently guessing what the campaign is for.</span>
+      <span class="skill-badge badge-workflow">Workflow</span>
+    </div>
+    <div class="skill-row reveal">
       <span class="skill-name">copy-quality-gate</span>
       <span class="skill-desc">Who this is for is clear from the copy alone. Why they should care has a real answer within two 'so what?' questions. The urgency is genuine — not 'now more than ever.' All three must pass.</span>
+      <span class="skill-badge badge-workflow">Workflow</span>
+    </div>
+    <div class="skill-row reveal">
+      <span class="skill-name">launch-plan-design</span>
+      <span class="skill-desc">Launch goal, audience, offer, assets, channels, and timeline — plus a rollback or pause criterion decided before launch day, not improvised during it.</span>
+      <span class="skill-badge badge-workflow">Workflow</span>
+    </div>
+    <div class="skill-row reveal">
+      <span class="skill-name">growth-metrics-design</span>
+      <span class="skill-desc">North star, input and output metrics, leading and lagging indicators, and activation/retention/conversion metrics — each with a measurement cadence and a named owner, defined before execution.</span>
       <span class="skill-badge badge-workflow">Workflow</span>
     </div>
     <div class="skill-row reveal">
@@ -494,6 +570,16 @@ footer a:hover { color:var(--text); }
     <div class="skill-row reveal">
       <span class="skill-name">retention-design</span>
       <span class="skill-desc">The moment a user first gets real value, the pattern that brings them back (what triggers it, what they do, what they get), and how to re-engage users who've gone quiet — all three designed before any retention feature ships</span>
+      <span class="skill-badge badge-workflow">Workflow</span>
+    </div>
+    <div class="skill-row reveal">
+      <span class="skill-name">social-proof-review</span>
+      <span class="skill-desc">Every testimonial, logo, case study, and quantified result checked for source, context, and permission. No logos without permission. No screenshots exposing private data.</span>
+      <span class="skill-badge badge-workflow">Workflow</span>
+    </div>
+    <div class="skill-row reveal">
+      <span class="skill-name">pricing-page-review</span>
+      <span class="skill-desc">The price is statable without a calculator. Tiers are differentiated by more than quantity. Usage limits are disclosed up front. The anchor tier reflects real value, not manipulation.</span>
       <span class="skill-badge badge-workflow">Workflow</span>
     </div>
   </div>
@@ -545,15 +631,15 @@ footer a:hover { color:var(--text); }
 
 <!-- ── AGENTS ── -->
 <section class="section reveal">
-  <div class="section-tag">The 3 Specialists</div>
-  <h2>Three AI roles Claude can take on</h2>
+  <div class="section-tag">The 5 Specialists</div>
+  <h2>Five AI roles Claude can take on</h2>
   <p class="section-sub">Each specialist has a narrow focus. All produce output at specific file paths — no chat-only results.</p>
 
   <div class="agents-grid">
     <div class="agent-card reveal">
       <span class="agent-model model-sonnet">Sonnet</span>
       <h3>growth-critic</h3>
-      <p>Reviews positioning, copy, and experiment designs against all 6 rules. Verdict: pass, fix these things, or blocked. Writes the report to a real file.</p>
+      <p>Reviews positioning, copy, and experiment designs against all 14 rules. Verdict: pass, fix these things, or blocked. Writes the report to a real file.</p>
     </div>
     <div class="agent-card reveal">
       <span class="agent-model model-sonnet">Sonnet</span>
@@ -564,6 +650,16 @@ footer a:hover { color:var(--text); }
       <span class="agent-model model-opus">Opus</span>
       <h3>messaging-reviewer</h3>
       <p>Reviews any copy that makes claims about AI. Checks every number has a source, every claim has a defined scope, and every 'AI' label says what the AI actually does. Writes the report to a real file.</p>
+    </div>
+    <div class="agent-card reveal">
+      <span class="agent-model model-sonnet">Sonnet</span>
+      <h3>growth-strategist</h3>
+      <p>Defines growth strategy, validates channel selection and offers, and designs launch plans before execution starts. Verdict: ready, conditional, or blocked. Writes it to a real file.</p>
+    </div>
+    <div class="agent-card reveal">
+      <span class="agent-model model-sonnet">Sonnet</span>
+      <h3>campaign-reviewer</h3>
+      <p>Builds campaign briefs, defines growth metrics, and reviews social proof and pricing pages before they ship. Verdict: pass, fix these things, or blocked. Writes it to a real file.</p>
     </div>
   </div>
 </section>
@@ -624,7 +720,7 @@ footer a:hover { color:var(--text); }
   </div>
 
   <div style="margin-top:24px; background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:20px 24px; font-size:.85rem; color:var(--muted); line-height:1.7;">
-    Start with <code style="color:var(--teal);">positioning-audit</code> before writing any copy. Run <code style="color:var(--teal);">copy-quality-gate</code> before any text ships. Run <code style="color:var(--teal);">ai-messaging-review</code> for any copy that describes AI capabilities. Use <code style="color:var(--teal);">experiment-design</code> before any A/B test starts — not after it's running.
+    Start with <code style="color:var(--teal);">growth-strategy-design</code> before any channel, offer, or campaign decision. Run <code style="color:var(--teal);">positioning-audit</code> before writing any copy. Run <code style="color:var(--teal);">copy-quality-gate</code> before any text ships. Run <code style="color:var(--teal);">ai-messaging-review</code> for any copy that describes AI capabilities. Use <code style="color:var(--teal);">experiment-design</code> before any A/B test starts — not after it's running.
   </div>
 </section>
 
@@ -640,12 +736,12 @@ footer a:hover { color:var(--text); }
     <a class="eco-card reveal" href="https://rbraga01.github.io/a-team/" target="_blank" rel="noopener">
       <div class="eco-card-eyebrow">Foundation</div>
       <h3>A Team</h3>
-      <p>25 pre-configured engineering specialists, 18 workflow skills, a lead orchestrator, and a Pipeline Auditor. The base layer.</p>
+      <p>26 pre-configured engineering specialists, 19 workflow skills, a lead orchestrator, and a Pipeline Auditor. The base layer.</p>
     </a>
     <a class="eco-card eco-you reveal" href="#" style="cursor:default">
       <div class="eco-card-eyebrow">You are here</div>
       <h3>builder-growth</h3>
-      <p>Growth quality gates. Positioning, copy, funnel analysis, experiments, retention design, AI messaging review.</p>
+      <p>Full growth lifecycle. Strategy, channel selection, offers, campaigns, launches, metrics, funnel analysis, experiments, retention design, pricing, social proof, copy, and AI messaging review.</p>
     </a>
     <a class="eco-card reveal" href="https://rbraga01.github.io/builder-ai/" target="_blank" rel="noopener">
       <div class="eco-card-eyebrow">AI Engineering</div>
@@ -679,6 +775,29 @@ const observer = new IntersectionObserver(
   { threshold: 0.12 }
 );
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>
+fetch('https://api.github.com/repos/RBraga01/builder-growth')
+  .then(r => r.json())
+  .then(data => {
+    document.querySelectorAll('.star-count').forEach(el => {
+      el.textContent = data.stargazers_count + ' ⭐';
+    });
+  })
+  .catch(() => {});
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('themeToggle');
+  function upd() {
+    btn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+  }
+  upd();
+  btn.addEventListener('click', function() {
+    var t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+    upd();
+  });
+});
 </script>
 </body>
 </html>
